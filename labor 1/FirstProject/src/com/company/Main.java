@@ -56,5 +56,47 @@ public class Main {
         double x[] ={7, 1, -3, 45, 9};
         System.out.printf("MAX: %6.2f\n", maxElement( x ));
 
+        package com.company;
+
+        public class Main {
+            public static void main(String[] args) {
+//        int array[];
+//        int[] array1;
+                for(int i=0; i<args.length;i++)
+                {
+                    System.out.println(args[i]);
+                }
+
+                //Math.sqrt(234);
+                System.out.println(createMonogram("Gall Botond"));
+            }
+
+            /**
+             *
+             * @param name -> ennek fogjuk meghatarozni a monogramjat
+             * @return -> a monogram
+             */
+            public static String createMonogram(String name) {
+                //name tartalma: Antal Jozsef
+                String[] tomb;
+                tomb = name.split(" ");
+                //tomb[0] = Antal
+                //tomb[1] = Jozsef
+                String monogram = "";
+//        for(int i = 0; i < tomb.length; ++i) {
+//            monogram += tomb[i].charAt(0);
+//        }
+                for (String s : tomb) {
+                    monogram += s.charAt(0);
+                }
+
+                return monogram;
+            }
+
+
+
+        }
+
+
     }
 }
