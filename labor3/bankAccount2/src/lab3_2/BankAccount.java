@@ -7,26 +7,27 @@ public class BankAccount {
     public BankAccount(String accountNumber) {
         this.accountNumber = accountNumber;
         this.balance = 0;
-
     }
 
 
     public String getAccountNumber() {
+
         return accountNumber;
     }
 
     public double getBalance() {
+
         return balance;
     }
 
     public void deposit(double value) {
-        if(value > 0) {
+        if (value > 0) {
             this.balance += value;
         }
     }
 
     public boolean withdraw(double value) {
-        if(value > 0 && value <= this.balance) {
+        if (value > 0 && value <= this.balance) {
             this.balance -= value;
             return true;
         }

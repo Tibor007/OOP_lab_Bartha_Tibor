@@ -1,7 +1,6 @@
 package lab3_2;
 
 
-
 public class Customer {
     private String firstName;
     private String lastName;
@@ -33,9 +32,9 @@ public class Customer {
 
     public BankAccount getAccount(String accountNumber) {
 
-        for (BankAccount account : this.accounts)
-            if (account.getAccountNumber().equals(accountNumber))
-                return account;
+        for (int i=0;i< numAccounts; i++)
+            if (accounts[i].getAccountNumber().equals(accountNumber))
+                return accounts[i];
         System.out.println("ACCOUNT NUMBER: " + accountNumber + " DOES NOT EXIST!");
         return null;
     }
@@ -50,8 +49,20 @@ public class Customer {
         return this.lastName;
     }
 
-    public void closeAccount(String numAccount) {
-        this.accounts[numAccounts] = null;
+    public void closeAccount(String accountNumber) {
+        for (int i=0; i<numAccounts; i++){
+            if (accounts[i].getAccountNumber().equals(accountNumber)) {
+                accounts[i] = null;
+
+                for (int j = i; j < numAccounts - 1; j++) {
+                accounts[j]= accounts[j+1];
+
+                }
+            }
+            numAccounts--;
+            break;
+        }
+
     }
 
     @Override

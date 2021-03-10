@@ -5,12 +5,12 @@ public class Main {
         Customer customer1 = new Customer("John", "WICK");
         Customer customer2 = new Customer("Elliot", "PAGE");
 
-        for(int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 5; i++) {
             customer1.addAccount(new BankAccount("OTP0000" + i));
             customer1.getAccount("OTP0000" + i).deposit(i * 100);
         }
 
-        for(int i = 1; i <= 9; i++) {
+        for (int i = 1; i <= 9; i++) {
             customer2.addAccount(new BankAccount("OTP0000" + i));
             customer2.getAccount("OTP0000" + i).deposit(i * 100);
         }
@@ -23,5 +23,10 @@ public class Main {
 
         System.out.println(customer1);
         System.out.println(customer2);
+
+        BankAccount acc =customer1.getAccount("OTP00009");
+        customer1.closeAccount("OTP00005");
+        System.out.println(customer1);
+
     }
 }
