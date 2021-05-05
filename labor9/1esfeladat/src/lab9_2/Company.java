@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Company {
@@ -96,5 +98,13 @@ public class Company {
             if (employee instanceof Manager)
                 ps.println(employee);
         }
+    }
+
+    public void naturalSort() {
+        Collections.sort(employees);
+    }
+
+    public void sortByComparator(Comparator<Employee> osszehasonlito) {
+        Collections.sort(employees, osszehasonlito);
     }
 }

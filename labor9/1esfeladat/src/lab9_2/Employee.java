@@ -2,6 +2,8 @@ package lab9_2;
 
 import lab9_1.MyDate;
 
+import java.util.Comparator;
+
 public class Employee implements Comparable<Employee> {
     private final int ID;
     private String firstName;
@@ -74,7 +76,7 @@ public class Employee implements Comparable<Employee> {
                 .append(this.birthDate.getYear()).append("-")
                 .append(this.birthDate.getMonth()).append("-")
                 .append(this.birthDate.getDay())
-                .append("\n ******* \n");
+                .append("\n");
 
 
         return buffer.toString();
@@ -82,15 +84,15 @@ public class Employee implements Comparable<Employee> {
 
     @Override
     public int compareTo(Employee o) {
-        /*int firstName = this.firstName.compareTo(o.firstName);
-        int lastName = this.lastName.compareTo(o.lastName);
-
-        if(lastName>0)
-            return lastName;
-        if(firstName > 0)
-            return firstName;*/
         String thisName = this.lastName + this.firstName;
         String oName = o.lastName + o.firstName;
         return thisName.compareTo(oName);
     }
+
+    public static Comparator<Employee> comparatorByBirthdate = new Comparator<Employee>() {
+        @Override
+        public int compare(Employee o1, Employee o2) {
+            return o1.getBirthDate().compareTo(o2.getBirthDate());
+        }
+    };
 }
